@@ -1,0 +1,19 @@
+body {
+  background-image: url("/pexels-asad-photo-maldives-457881.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: rubik, sans-serif;
+  font-size: medium;
+  font-weight: 300;
+}
+
+.header {
+  text-align: center;
+  margin-top: 200px;
+  font-size: 40px;
+}
+
+.form {
+  text-align: center;
+  border-radius: 5px;
+}

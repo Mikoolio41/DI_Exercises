@@ -1,0 +1,36 @@
+body {
+  margin: auto 0;
+}
+
+.container {
+  max-width: 1200px;
+  display: flex;
+  padding: 30px 30px;
+  gap: 60px;
+}
+
+.box div {
+  height: 100px;
+  width: 100px;
+  background: yellow;
+  border: 2px solid black;
+  display: flex;
+  margin: 10px;
+}
+
+.box.left {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.box.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box.right {
+  justify-content: flex-end;
+  margin: 0;
+}

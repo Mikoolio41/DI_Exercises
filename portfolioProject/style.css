@@ -1,0 +1,83 @@
+a:hover {
+  color: #e9ecef;
+}
+
+.jumbotron {
+  background-image: url("https://cdn.wallpapersafari.com/0/30/bMmkWR.png");
+  background-size: cover;
+  height: 500px;
+  padding-top: 80px;
+  color: aliceblue;
+}
+
+.lead {
+  margin-top: 70px;
+}
+
+.portfolio {
+  background: linear-gradient(180deg, rgb(100, 100, 100), black);
+  background-size: cover;
+  height: 500px;
+  color: aliceblue;
+}
+
+.portfolio h1 {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.portfolio img {
+  height: 150px;
+}
+
+.container {
+  align-items: center;
+  justify-content: center;
+}
+
+.blog {
+  background: linear-gradient(180deg, black, rgb(100, 100, 100));
+  background-size: cover;
+  height: 450px;
+}
+
+.blog h1 {
+  color: aliceblue;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.blog img {
+  height: 150px;
+}
+.btn {
+  background-color: rgb(86, 169, 224);
+}
+
+.ourteam {
+  background: linear-gradient(180deg, rgb(100, 100, 100), black);
+  background-size: cover;
+  height: 500px;
+  text-align: center;
+}
+
+.ourteam h1 {
+  color: aliceblue;
+  padding-bottom: 30px;
+  margin-top: auto;
+}
+
+.ourteam img {
+  height: 200px;
+}
+
+.mb-4 {
+  background-color: rgb(207, 207, 207);
+}
+
+h2 {
+  background-color: rgb(207, 207, 207);
+  margin-top: 0;
+  padding: 20px;
+}

@@ -1,0 +1,43 @@
+body {
+  margin: auto;
+  background: linear-gradient(120deg, rgb(24, 141, 106), rgb(56, 215, 236));
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.grid-container {
+  width: 700px;
+  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid black;
+  padding: 40px;
+}
+
+.grid-items {
+  border: 2px solid black;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+form {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+input,
+label {
+  display: block;
+}
+
+.first-block {
+  grid-column: 3 / 4;
+}
