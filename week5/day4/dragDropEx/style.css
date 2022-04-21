@@ -1,0 +1,33 @@
+* {
+    background-color: beige;
+}
+.fill {
+    background-color: black;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+}
+.empty {
+    width: 110px;
+    height: 110px;
+    margin: 10px;
+    background-color: white;
+    display: inline-block;
+    border: 2px rgb(245, 182, 22);
+}
+
+.hold {
+    border: 2px solid grey;
+}
+
+.hovered {
+    background: lightgray;
+    border-style: dotted;
+}
+
+.invisible {
+    display: none;
+}
