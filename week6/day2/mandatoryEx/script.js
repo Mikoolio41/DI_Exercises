@@ -134,6 +134,7 @@ let bankAmount = 10000
 const vat = 0.17
 let details = ["+200", "-100", "+146", "+167", "-2900"]
 
-bankAmount += details.reduce((acc, currentVal) => acc + Number(currentVal) * Number(vat) + Number(currentVal), 0)
+bankAmount += details.reduce((acc, currentVal) => acc + Number(currentVal) * Number(vat) + Number(currentVal), 0)// should the reduce start at 0 ?
+
 
 console.log(bankAmount);
