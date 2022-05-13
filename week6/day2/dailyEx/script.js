@@ -43,7 +43,7 @@ console.log(usernames);
 // let winners = ["becky", "susy"]
 
 let winners = []
-gameInfo.forEach((val) => (val.score > 5) ? winners.push(val.username) : "");
+gameInfo.forEach((val) => (val.score > 5) ? winners.push(val.username) : val.username);
 console.log(winners);
 
 
