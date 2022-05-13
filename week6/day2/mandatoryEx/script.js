@@ -132,8 +132,8 @@
 
 let bankAmount = 10000
 const vat = 0.17
-let details = ["+200", "-100", "+146", "+167", "-2900"]
+let details = ["+200", "-100", "+146", "+167", "-2900"] // 2487, 2909.8
 
-bankAmount += details.reduce((acc, currentVal) => acc + Number(currentVal) * Number(vat) + Number(currentVal), 0)
+bankAmount = details.reduce((acc, currentVal) => acc + Number(currentVal) * Number(vat) + Number(currentVal), bankAmount)
 
 console.log(bankAmount);
