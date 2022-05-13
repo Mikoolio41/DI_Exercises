@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+.Container {
+  background: linear-gradient(180deg, rgb(134, 224, 92), rgb(114, 233, 242));
+  border: 3px solid black;
+  margin: 0 auto;
+  height: 500px;
+  width: 700px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+}
+input,
+button {
+  border: 1px solid black;
+  font-size: 20px;
+}
+
+.listTasks {
+  font-size: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 20fr;
+  padding-left: 30%;
+  padding-right: 10%;
+  width: fit-content;
+}
