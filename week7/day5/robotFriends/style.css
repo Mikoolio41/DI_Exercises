@@ -1,0 +1,66 @@
+.containerAll {
+  background: purple url("./assets/circuit-pattern.png") repeat;
+  width: 99vw;
+  height: 120vh;
+}
+
+#robo-container {
+  margin-left: 10px 30px;
+}
+nav {
+  background-image: "./assets/";
+}
+.card {
+  background: aqua url("./assets/card-pattern.png") repeat;
+  height: 200px;
+  width: 260px;
+  border-radius: 0%;
+  margin-bottom: 100px;
+  border: none;
+}
+
+.card-body {
+  background: aqua url("./assets/card-pattern.png") repeat;
+  height: fit-content;
+  width: 260px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+img {
+  height: 200px;
+  width: 130px;
+  background: rgb(26, 30, 78);
+  padding: 5px;
+}
+
+.row {
+  margin: 30px 20px;
+  justify-content: center;
+}
+
+.navbar-brand {
+  font-family: "SEGA LOGO FONT";
+  margin-left: 130px;
+}
+
+.d-flex {
+  width: 50vw;
+  margin-right: 250px;
+}
+
+#submit {
+  display: none;
+}
+
+.navbar {
+  background: linear-gradient(180deg, rgb(36, 36, 106), purple);
+}
+
+.card-img {
+  border-radius: 50%;
+  padding: 5px;
+  width: fit-content;
+  height: 190px;
+  margin: 0 auto;
+  margin-top: 3px;
+}
