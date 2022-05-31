@@ -54,7 +54,89 @@
 
 // Add a “X” next to each card, in order to delete it from the DOM.
 
+// the constants for the app
+
 const myForm = document.forms[0];
+const apiKey = "6bc236fa8bd5e7e03f83fd8cea3eac74";
+const apiURL = `https://api.openweathermap.org/data/2.5/weather?units=metric&appid=${apiKey}`;
+const iconURL = `http://openweathermap.org/img/wn/`;
+
+// Establish Location and get local weather data
+
+const getLocation = () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      let localApiURL = `${apiURL}&lat=${position.coords.latitude}&lon=${position.coords.longitude}`;
+      let firstXhr = new XMLHttpRequest();
+      firstXhr.open("GET", localApiURL);
+      firstXhr.responseType = "json";
+      firstXhr.send();
+      firstXhr.onload = () => {
+        if (firstXhr.status != 200) {
+          alert(`Error ${firstXhr.status}: ${firstXhr.statusText}`);
+        } else {
+          let currentLocation = document.createElement("h4");
+          let currentLocationText = document.createTextNode(
+            `Current position: Latitude - ${position.coords.latitude} ; Longitude - ${position.coords.longitude}`
+          );
+          document
+            .querySelector("#current-location")
+            .appendChild(currentLocation);
+          currentLocation.appendChild(currentLocationText);
+          let currentWeather = document.createElement("h4");
+          let currentWeatherText = document.createTextNode(
+            `Your local weather is ${firstXhr.response.weather[0].description}`
+          );
+          document
+            .querySelector("#current-location")
+            .appendChild(currentWeather);
+          currentWeather.appendChild(currentWeatherText);
+          let currentWeatherIcon = document.createElement("img");
+          currentWeatherIcon.src = `${iconURL}${firstXhr.response.weather[0].icon}@2x.png`;
+          document
+            .querySelector("#current-location")
+            .appendChild(currentWeatherIcon);
+          console.log(firstXhr.response);
+        }
+      };
+    });
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
+};
+
+getLocation();
+
+// Convert time function
+
+const convertUnixTime = (unix_timestamp) => {
+  let date = new Date(unix_timestamp * 1000);
+  let hours = date.getHours();
+  let minutes = "0" + date.getMinutes();
+  let formattedTime = hours + ":" + minutes.substr(-2);
+  console.log(formattedTime);
+  return formattedTime;
+};
+
+const convertTemp = () => {
+  if (document.querySelector("#no").checked) {
+    document.querySelectorAll(".card-temp").forEach(
+      // (element) => element.innerHTML == (element.innerHTML * 9) / 5 + 32
+      (element) => {
+        if (element.innerHTML.includes("F"))
+          element.innerHTML == (element.innerHTML * 9) / 5 + 32;
+      }
+    );
+  } else if (document.querySelector("#yes").checked) {
+    document.querySelectorAll(".card-temp").forEach(
+      // (element) => element.innerHTML == ((element.innerHTML - 32) * 5) / 9
+      (element) => {
+        if (element.innerHTML.includes("C"))
+          element.innerHTML == ((element.innerHTML - 32) * 5) / 9;
+      }
+    );
+  }
+};
 
 myForm.querySelector("#find").addEventListener("click", (e) => {
   let xhr = new XMLHttpRequest();
@@ -62,28 +144,21 @@ myForm.querySelector("#find").addEventListener("click", (e) => {
   // Configure my request
 
   let city = myForm.querySelector("#city").value;
-  const apiKey = "6bc236fa8bd5e7e03f83fd8cea3eac74";
-  const apiURL = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`;
-  const iconURL = `http://openweathermap.org/img/wn/`;
+  const cityApiURL = `${apiURL}&q=${city}`;
 
-  xhr.open("GET", apiURL);
-
+  xhr.open("GET", cityApiURL);
   xhr.responseType = "json";
-
-  // Send the request
-
   xhr.send();
-
-  // What happens after the response is received
 
   xhr.onload = () => {
     if (xhr.status != 200) {
-      // analyze HTTP status of the response
-      // alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
-      let errorModal = document.querySelector("#error_modal");
-
+      let errorModal = new bootstrap.Modal(
+        document.querySelector("#error_modal")
+      );
+      errorModal.show();
       console.log(errorModal);
     } else {
+      // Create and populate the dataObject with response data
       const dataObject = {
         city: "",
         country: "",
@@ -105,9 +180,11 @@ myForm.querySelector("#find").addEventListener("click", (e) => {
       dataObject.temperature_celsius = xhr.response.main.temp;
       dataObject.temperature_fahrenheit =
         (dataObject.temperature_celsius * 9) / 5 + 32;
-      dataObject.sunrise = xhr.response.sys.sunrise;
-      dataObject.sunset = xhr.response.sys.sunset;
       dataObject.wind = xhr.response.wind;
+
+      dataObject.sunrise = convertUnixTime(xhr.response.sys.sunrise);
+      dataObject.sunset = convertUnixTime(xhr.response.sys.sunset);
+
       console.log(dataObject);
       console.log(xhr.response);
 
@@ -135,15 +212,14 @@ myForm.querySelector("#find").addEventListener("click", (e) => {
       let imgIcon = document.createElement("img");
       imgIcon.src = dataObject.weather_icon;
       imgIcon.alt = dataObject.weather;
-      // imgIcon.classList.add("card-img-top");
       cardBodyDiv.appendChild(imgIcon);
       let otherItems = document.createElement("p");
       let otherItemsText = document.createTextNode(`
       weather: ${dataObject.weather}
-      humidity: ${dataObject.humidity}
+      humidity: ${dataObject.humidity} %
       wind - degree: ${dataObject.wind.deg} , gust - ${dataObject.wind.gust} , speed - ${dataObject.wind.speed}
       sunrise time: ${dataObject.sunrise}
-      sunrise time: ${dataObject.sunset}`);
+      sunset time: ${dataObject.sunset}`);
       cardBodyDiv.appendChild(otherItems);
       otherItems.appendChild(otherItemsText);
       let delBttn = document.createElement("button");
@@ -160,9 +236,7 @@ myForm.querySelector("#find").addEventListener("click", (e) => {
       });
     }
   };
-
-  // xhr.onerror = () => {
-  //   alert("Request failed");
-  //   console.log("FUBAR");
-  // };
 });
+
+document.querySelector("#no").addEventListener("click", (e) => console.log(e));
+document.querySelector("#yes").addEventListener("click", (e) => console.log(e));
