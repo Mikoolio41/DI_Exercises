@@ -10,7 +10,7 @@ body {
 }
 
 .char-container {
-  width: 400px;
+  width: 450px;
   height: 200px;
   margin: 0 auto;
   border: 2px solid yellow;
@@ -44,11 +44,15 @@ button {
 }
 
 input {
-  display: block;
-  margin: 10px auto;
+  display: flex;
+  margin: 15px auto;
+  text-align: center;
   background: transparent;
-  color: white;
+  color: rgb(246, 250, 43);
   border: none;
   font-size: 20px;
-  width: fit-content;
+}
+
+input[name="name"] {
+  font-size: 36px;
 }
