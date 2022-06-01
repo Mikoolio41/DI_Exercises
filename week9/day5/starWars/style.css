@@ -4,18 +4,23 @@
 
 body {
   background-color: black;
-  background-image: url("./assets/UG6XrK.jpg");
+  background-image: url("./assets/pexels-photo-1169754.jpeg");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .char-container {
-  width: 500px;
-  height: 250px;
+  width: 400px;
+  height: 200px;
   margin: 0 auto;
-  border: 2px solid black;
+  border: 2px solid yellow;
   border-radius: 10px;
   padding: 50px 60px;
+}
+
+form {
+  text-align: center;
+  justify-content: center;
 }
 
 .logo {
@@ -39,5 +44,11 @@ button {
 }
 
 input {
-  margin: 25px auto;
+  display: block;
+  margin: 10px auto;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 20px;
+  width: fit-content;
 }
