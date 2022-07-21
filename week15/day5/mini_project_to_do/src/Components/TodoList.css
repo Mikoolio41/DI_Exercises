@@ -22,6 +22,11 @@ body {
   font-weight: normal;
 }
 
+.todoItem:hover {
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
 .header {
   color: #2196f3;
   font-size: 4.2rem;
