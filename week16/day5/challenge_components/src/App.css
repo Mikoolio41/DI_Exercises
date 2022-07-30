@@ -1,0 +1,43 @@
+body {
+  box-sizing: border-box;
+  background-color: lightblue;
+  justify-content: center;
+  font-family: "Uchen", serif;
+}
+
+.cardContainer {
+  margin-left: 25%;
+  justify-content: center;
+  display: block;
+  width: 800px;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.cards {
+  background-color: white;
+  width: 700px;
+  /* height: 200px; */
+  justify-content: center;
+  border-radius: 8px;
+  margin-top: 40px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 20px;
+}
+
+.number {
+  margin-left: 10px;
+  padding-bottom: 20px;
+  font-size: 60px;
+}
