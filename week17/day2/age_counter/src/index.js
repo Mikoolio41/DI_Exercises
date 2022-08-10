@@ -7,13 +7,18 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import { ageReducer } from "./redux/Reducers";
 
-const store = createStore(ageReducer);
+const logAction = (store) => (next) => (action) => {
+  console.log(`caught in the middleware ${JSON.stringify(store.getState())}`);
+  next(action);
+};
+
+const store = createStore(ageReducer, applyMiddleware(logAction));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
