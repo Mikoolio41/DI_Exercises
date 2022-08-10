@@ -54,27 +54,30 @@ class App extends Component {
     } else
       return (
         <div className="App">
+          <h1>SnapShots</h1>
           <SearchBox
             getPics={this.getPics}
             number={this.state.selected.perPage}
           />
-          {this.state.links.map((item, index) => {
-            return (
-              <Link
-                key={index}
-                to={item.name.toLowerCase()}
-                onClick={() => {
-                  this.getPics(
-                    item.name,
-                    item.path,
-                    this.state.selected.perPage
-                  );
-                }}
-              >
-                {item.name}
-              </Link>
-            );
-          })}
+          <div className="links">
+            {this.state.links.map((item, index) => {
+              return (
+                <Link
+                  key={index}
+                  to={item.name.toLowerCase()}
+                  onClick={() => {
+                    this.getPics(
+                      item.name,
+                      item.path,
+                      this.state.selected.perPage
+                    );
+                  }}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+          </div>
           <Routes>
             <Route
               path="/"
@@ -90,11 +93,13 @@ class App extends Component {
               }
             />
           </Routes>
-          <Pagination
-            getPics={this.getPics}
-            topic={this.state.selected.name}
-            path={this.state.selected.path}
-          />
+          <div className="pagination">
+            <Pagination
+              getPics={this.getPics}
+              topic={this.state.selected.name}
+              path={this.state.selected.path}
+            />
+          </div>
         </div>
       );
   }

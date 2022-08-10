@@ -17,7 +17,9 @@ function SearchBox(props) {
         }}
       >
         <input name="searchInput" type={"text"} />
-        <button type="submit">Search</button>
+        <button className="searchButton" type="submit">
+          Search
+        </button>
       </form>
     </div>
   );

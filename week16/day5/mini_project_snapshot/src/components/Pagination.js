@@ -6,8 +6,8 @@ function Pagination(props) {
       <button onClick={() => props.getPics(props.topic, props.path, 12)}>
         12
       </button>
-      <button onClick={() => props.getPics(props.topic, props.path, 20)}>
-        20
+      <button onClick={() => props.getPics(props.topic, props.path, 18)}>
+        18
       </button>
       <button onClick={() => props.getPics(props.topic, props.path, 24)}>
         24
