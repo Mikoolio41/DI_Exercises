@@ -10,8 +10,13 @@ class Card extends Component {
   render() {
     const { id, name, image, occupation } = this.state;
     return (
-      <div onClick={this.props.clickAction} id={id}>
-        <img className="imgCard" alt="" src={image} />
+      <div id={id}>
+        <img
+          onClick={this.props.clickAction}
+          className="imgCard"
+          alt=""
+          src={image}
+        />
         <h4>
           <span>Name: </span>
           {name}

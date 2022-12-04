@@ -18,6 +18,7 @@ class Game extends Component {
   }
   //   Setting the score
   setScore = (event) => {
+    console.log(event.target.parentElement);
     let id = event.target.parentElement.id;
     if (this.state.clickedArray.indexOf(id) === -1) {
       this.state.clickedArray.push(id);
